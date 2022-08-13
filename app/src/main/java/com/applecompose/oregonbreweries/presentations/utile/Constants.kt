@@ -1,4 +1,4 @@
-package com.applecompose.oregonbreweries.presentations.contents
+package com.applecompose.oregonbreweries.presentations.utile
 
 object Constants {
 	const val BASE_URL = "https://api.openbrewerydb.org/breweries/"
