@@ -1,7 +1,7 @@
 package com.applecompose.oregonbreweries.data.di
 
-import com.applecompose.oregonbreweries.domain.repository.BreweriesRepository
 import com.applecompose.oregonbreweries.data.network.BreweriesApi
+import com.applecompose.oregonbreweries.domain.repository.BreweriesRepository
 import com.applecompose.oregonbreweries.presentations.utile.Constants
 import dagger.Module
 import dagger.Provides
@@ -9,7 +9,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -18,8 +17,10 @@ object AppModule {
 
 	@Singleton
 	@Provides
-	fun provideBreweriesRepository(api: BreweriesApi) =
-		BreweriesRepository(api)
+	fun provideBreweriesRepository(api: BreweriesApi) = BreweriesRepository(api)
+
+
+
 
 	@Singleton
 	@Provides

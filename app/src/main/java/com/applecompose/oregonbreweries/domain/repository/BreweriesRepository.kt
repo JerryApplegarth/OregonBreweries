@@ -1,5 +1,6 @@
 package com.applecompose.oregonbreweries.domain.repository
 
+import android.content.ContentValues.TAG
 import android.util.Log
 import com.applecompose.oregonbreweries.data.DataOrException
 import com.applecompose.oregonbreweries.data.model.Breweries
@@ -15,21 +16,20 @@ class BreweriesRepository @Inject constructor(
 			Boolean,
 			Exception>()
 
-	suspend fun getBreweries(by_state: String):
-			DataOrException<ArrayList<BreweriesItem>,
-			Boolean,
-			java.lang.Exception> {
+	suspend fun getAllBreweries(): DataOrException<ArrayList<BreweriesItem>, Boolean, Exception> {
 		try {
 			dataOrException.loading = true
-			dataOrException.data = api.getBreweries()
-			if (dataOrException.data.toString().isNotEmpty())
-				dataOrException.loading = false
-		} catch (exception: Exception) {
+			dataOrException.data = api.getAllBreweries()
+			if (dataOrException.data.toString().isNotEmpty()) dataOrException.loading = false
+
+		}catch (exception: Exception) {
 			dataOrException.e = exception
-			Log.d("EXCEPTION", "getBreweries: ${dataOrException.e!!.localizedMessage}")
+			Log.d("EXCEPTION", "getAllBreweries: ${dataOrException.e!!.localizedMessage}")
+
 		}
 		return dataOrException
 	}
+
 
 
 
