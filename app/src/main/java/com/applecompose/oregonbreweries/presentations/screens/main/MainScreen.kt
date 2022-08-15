@@ -61,8 +61,11 @@ fun MyBreweries(
 	} else {
 		brewery?.forEach { breweryRow ->
 
+
+
 			Text(
-				text =  breweryRow.name,
+
+				text =  breweryRow.city,
 				fontSize = 20.sp,
 				fontWeight = FontWeight.Bold
 			)
@@ -84,13 +87,19 @@ fun MyBreweries(
 							},
 						shape = MaterialTheme.shapes.large,
 						elevation = 4.dp,
-						backgroundColor = MaterialTheme.colors.newBackgroundColor
+
 					) {
 						Column(
 							modifier = Modifier
 								.padding(15.dp)
-								.background(MaterialTheme.colors.newBackgroundColor)
+
 						) {
+							Text(
+								"Name: ${breweryRow.name}",
+
+								fontSize = 20.sp,
+								fontWeight = FontWeight.Bold
+							)
 							Text(
 								"Type: ${breweryRow.brewery_type}",
 

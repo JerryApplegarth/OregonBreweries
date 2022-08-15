@@ -1,9 +1,7 @@
 package com.applecompose.oregonbreweries.domain.repository
 
-import android.content.ContentValues.TAG
 import android.util.Log
 import com.applecompose.oregonbreweries.data.DataOrException
-import com.applecompose.oregonbreweries.data.model.Breweries
 import com.applecompose.oregonbreweries.data.model.BreweriesItem
 import com.applecompose.oregonbreweries.data.network.BreweriesApi
 import javax.inject.Inject

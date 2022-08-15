@@ -1,7 +1,7 @@
 package com.applecompose.oregonbreweries.data.model
 
 data class BreweriesItem(
-    val address_2: Any,
+    val address_2: String,
     val address_3: Any,
     val brewery_type: String,
     val city: String,

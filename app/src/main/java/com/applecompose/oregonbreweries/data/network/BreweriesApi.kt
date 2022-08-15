@@ -7,6 +7,6 @@ import javax.inject.Singleton
 @Singleton
 interface BreweriesApi {
 
-	@GET("breweries/?by_state=oregon")
+	@GET("breweries?by_state=oregon&per_page=50")
 	suspend fun getAllBreweries(): Breweries
 }
