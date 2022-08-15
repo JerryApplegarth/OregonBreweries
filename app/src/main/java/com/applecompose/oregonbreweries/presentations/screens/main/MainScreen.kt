@@ -1,11 +1,15 @@
 package com.applecompose.oregonbreweries.presentations.screens.main
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,37 +20,38 @@ import com.applecompose.oregonbreweries.presentations.screens.BreweriesViewModel
 
 @Composable
 fun MainScreen(navController: NavController, viewModel: BreweriesViewModel = hiltViewModel()) {
-	val brewery = viewModel.data.value.data?.toMutableList()
 
+	MyBreweries(viewModel = viewModel)
+
+}
+
+
+@Composable
+fun MyBreweries(viewModel: BreweriesViewModel) {
+
+	val brewery = viewModel.data.value.data?.toMutableList()
 	if (viewModel.data.value.loading == true) {
 		CircularProgressIndicator()
 	} else {
-		brewery?.forEach { breweryItem ->
-			Column() {
-				Card(
-					modifier = Modifier
-						.padding(6.dp)
-						.fillMaxWidth(),
-					shape = RoundedCornerShape(16.dp),
-					elevation = 4.dp
-				) {
-					Column() {
-						Text(text = "Name: ${breweryItem.name}")
-						Text(text = "Type: ${breweryItem.brewery_type}")
-						Text(text = "Address: ${breweryItem.street}")
-					}
-
-
-
-				}
-
-				Text(text = "Name: ${brewery.size}")
-			}
-
+		brewery?.forEach { breweryRow ->
+			Log.d("NAME", "MyBreweries: ${breweryRow.name}")
+			Text(text = "Name: ${breweryRow.name}")
 
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
