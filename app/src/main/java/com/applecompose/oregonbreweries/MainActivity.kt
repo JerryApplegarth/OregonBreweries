@@ -9,6 +9,7 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import com.applecompose.oregonbreweries.presentations.navigation.Navigation
 import com.applecompose.oregonbreweries.ui.theme.OregonBreweriesTheme
+import com.applecompose.oregonbreweries.ui.theme.newBackgroundColor
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
 				// A surface container using the 'background' color from the theme
 				Surface(
 					modifier = Modifier.fillMaxSize(),
-					color = MaterialTheme.colors.background
+					color = MaterialTheme.colors.newBackgroundColor
 				) {
 					Navigation()
 				}
