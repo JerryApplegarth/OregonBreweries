@@ -1,30 +1,19 @@
 package com.applecompose.oregonbreweries.presentations.screens.main
 
-import android.util.Log
-import android.widget.Toast
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCompositionContext
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.applecompose.oregonbreweries.R
 import com.applecompose.oregonbreweries.presentations.screens.BreweriesViewModel
-import com.applecompose.oregonbreweries.ui.theme.newBackgroundColor
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
 fun MainScreen(navController: NavController, viewModel: BreweriesViewModel = hiltViewModel()) {
@@ -35,8 +24,6 @@ fun MainScreen(navController: NavController, viewModel: BreweriesViewModel = hil
 		)
 	}
 	) {
-
-
 		LazyColumn(
 			modifier = Modifier
 				.fillMaxWidth(),
@@ -44,6 +31,7 @@ fun MainScreen(navController: NavController, viewModel: BreweriesViewModel = hil
 		) {
 			item {
 				MyBreweries(viewModel = viewModel)
+
 			}
 		}
 	}
@@ -53,22 +41,19 @@ fun MainScreen(navController: NavController, viewModel: BreweriesViewModel = hil
 @Composable
 fun MyBreweries(
 	viewModel: BreweriesViewModel,
-	onClick: () -> Unit = {}
 	) {
 	val brewery = viewModel.data.value.data?.toMutableList()
+
 	if (viewModel.data.value.loading == true) {
 		CircularProgressIndicator()
 	} else {
 		brewery?.forEach { breweryRow ->
 
-
-
 			Text(
-
-				text =  breweryRow.city,
+				text = breweryRow.city,
 				fontSize = 20.sp,
-				fontWeight = FontWeight.Bold
-			)
+				fontWeight = FontWeight.Bold,)
+
 			Surface {
 				Column(
 					modifier = Modifier
@@ -81,10 +66,7 @@ fun MyBreweries(
 					Card(
 						modifier = Modifier
 							.padding(4.dp)
-							.fillMaxWidth()
-							.clickable {
-									   onClick
-							},
+							.fillMaxWidth(),
 						shape = MaterialTheme.shapes.large,
 						elevation = 4.dp,
 
@@ -101,8 +83,19 @@ fun MyBreweries(
 								fontWeight = FontWeight.Bold
 							)
 							Text(
+								"City: ${breweryRow.city}",
+
+								fontSize = 16.sp,
+								fontWeight = FontWeight.Light
+							)
+							Text(
 								"Type: ${breweryRow.brewery_type}",
 
+								fontSize = 16.sp,
+								fontWeight = FontWeight.Light
+							)
+							Text(
+								"Website: ${breweryRow.website_url}",
 								fontSize = 16.sp,
 								fontWeight = FontWeight.Light
 							)
@@ -111,6 +104,12 @@ fun MyBreweries(
 								fontSize = 16.sp,
 								fontWeight = FontWeight.Light
 							)
+							Text(
+								"Phone: ${breweryRow.phone}",
+								fontSize = 16.sp,
+								fontWeight = FontWeight.Light
+							)
+
 						}
 					}
 				}
