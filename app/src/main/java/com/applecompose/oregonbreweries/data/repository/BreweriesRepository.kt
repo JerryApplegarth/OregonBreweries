@@ -1,4 +1,4 @@
-package com.applecompose.oregonbreweries.domain.repository
+package com.applecompose.oregonbreweries.data.repository
 
 import android.util.Log
 import com.applecompose.oregonbreweries.data.DataOrException

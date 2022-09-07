@@ -1,7 +1,7 @@
 package com.applecompose.oregonbreweries.data.di
 
 import com.applecompose.oregonbreweries.data.network.BreweriesApi
-import com.applecompose.oregonbreweries.domain.repository.BreweriesRepository
+import com.applecompose.oregonbreweries.data.repository.BreweriesRepository
 import com.applecompose.oregonbreweries.presentations.utile.Constants
 import dagger.Module
 import dagger.Provides

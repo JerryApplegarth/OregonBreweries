@@ -1,14 +1,14 @@
 package com.applecompose.oregonbreweries.domain.usecase
 
-import com.applecompose.oregonbreweries.data.model.Breweries
-import com.applecompose.oregonbreweries.domain.repository.BreweriesRepository
 
-class GetBreweryUseCase {
+// This is where i would build a sort class
 
+//class GetBreweryUseCase {
+//
 //	private val repository: BreweriesRepository =
 //		BreweriesRepository()
-//	suspend operator fun invoke(): List<Breweries> {
+//	suspend operator fun invoke() {
 //		return repository.getAllBreweries()
-//			.sorteBy{ it.city}
+//			.sorteBy{city}
 //	}
-}
+//}

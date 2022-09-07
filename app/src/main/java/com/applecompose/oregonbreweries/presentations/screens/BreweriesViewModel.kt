@@ -2,12 +2,11 @@ package com.applecompose.oregonbreweries.presentations.screens
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.applecompose.oregonbreweries.data.DataOrException
 import com.applecompose.oregonbreweries.data.model.BreweriesItem
-import com.applecompose.oregonbreweries.domain.repository.BreweriesRepository
+import com.applecompose.oregonbreweries.data.repository.BreweriesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -24,7 +23,9 @@ class BreweriesViewModel @Inject constructor(
 		DataOrException(null, true, Exception(""))
 	)
 	init {
+
 		getAllBreweries()
+
 	}
 
 	private fun getAllBreweries() {
