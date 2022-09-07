@@ -20,12 +20,16 @@ class BreweriesRepository @Inject constructor(
 			dataOrException.data = api.getAllBreweries()
 			if (dataOrException.data.toString().isNotEmpty()) dataOrException.loading = false
 
+
 		}catch (exception: Exception) {
 			dataOrException.e = exception
 			Log.d("EXCEPTION", "getAllBreweries: ${dataOrException.e!!.localizedMessage}")
 
 		}
+
 		return dataOrException
+
+
 	}
 
 
